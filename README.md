@@ -210,10 +210,45 @@ print(result.text_content)
 
 ### Docker
 
+#### Option 1 — Pull from Docker Hub (recommended)
+
+A pre-built image is available on Docker Hub at [`mohammd82/markitdown`](https://hub.docker.com/r/mohammd82/markitdown):
+
+```sh
+# Convert a file by mounting the current directory
+docker run --rm -v "$(pwd):/files" mohammd82/markitdown:latest /files/document.pdf
+
+# Redirect output to a markdown file
+docker run --rm -v "$(pwd):/files" mohammd82/markitdown:latest /files/document.pdf > output.md
+
+# Pipe input directly
+docker run --rm -i mohammd82/markitdown:latest < ~/your-file.pdf > output.md
+```
+
+Available tags:
+
+| Tag | Description |
+| ------- | -------------------------------- |
+| `latest` | Latest build from `main` branch |
+| `v*.*.*` | Specific release versions |
+
+#### Option 2 — Build locally
+
 ```sh
 docker build -t markitdown:latest .
 docker run --rm -i markitdown:latest < ~/your-file.pdf > output.md
 ```
+
+#### Automated Docker Hub Deployment (CI/CD)
+
+This repository includes a GitHub Actions workflow (`.github/workflows/docker-publish.yml`) that automatically builds and pushes the Docker image to Docker Hub on every push to `main` and on version tags.
+
+To enable it on your fork, add the following secrets under **Settings → Secrets → Actions**:
+
+| Secret | Value |
+| ---------------------- | ----------------------------------------- |
+| `DOCKERHUB_USERNAME` | Your Docker Hub username |
+| `DOCKERHUB_TOKEN` | Access token from hub.docker.com → Security |
 
 ## Contributing
 

@@ -3,6 +3,8 @@
 [![PyPI](https://img.shields.io/pypi/v/markitdown.svg)](https://pypi.org/project/markitdown/)
 ![PyPI - Downloads](https://img.shields.io/pypi/dd/markitdown)
 [![Built by AutoGen Team](https://img.shields.io/badge/Built%20by-AutoGen%20Team-blue)](https://github.com/microsoft/autogen)
+[![Docker Hub](https://img.shields.io/docker/pulls/mohammd82/markitdown?label=Docker%20Pulls&logo=docker)](https://hub.docker.com/r/mohammd82/markitdown)
+[![Docker Image Size](https://img.shields.io/docker/image-size/mohammd82/markitdown/latest?logo=docker)](https://hub.docker.com/r/mohammd82/markitdown)
 
 > [!IMPORTANT]
 > MarkItDown performs I/O with the privileges of the current process. Like open() or requests.get(), it will access resources that the process itself can access. Sanitize your inputs in untrusted environments, and call the narrowest `convert_*` function needed for your use case (e.g., `convert_stream()`, or `convert_local()`). See the [Security Considerations](#security-considerations) section of the documentation for more information.
@@ -204,10 +206,45 @@ print(result.text_content)
 
 ### Docker
 
+#### Option 1 — Pull from Docker Hub (recommended)
+
+A pre-built image is available on Docker Hub at [`mohammd82/markitdown`](https://hub.docker.com/r/mohammd82/markitdown):
+
+```sh
+# Convert a file by mounting the current directory
+docker run --rm -v "$(pwd):/files" mohammd82/markitdown:latest /files/document.pdf
+
+# Redirect output to a markdown file
+docker run --rm -v "$(pwd):/files" mohammd82/markitdown:latest /files/document.pdf > output.md
+
+# Pipe input directly
+docker run --rm -i mohammd82/markitdown:latest < ~/your-file.pdf > output.md
+```
+
+Available tags:
+
+| Tag | Description |
+| ------- | -------------------------------- |
+| `latest` | Latest build from `main` branch |
+| `v*.*.*` | Specific release versions |
+
+#### Option 2 — Build locally
+
 ```sh
 docker build -t markitdown:latest .
 docker run --rm -i markitdown:latest < ~/your-file.pdf > output.md
 ```
+
+#### Automated Docker Hub Deployment (CI/CD)
+
+This repository includes a GitHub Actions workflow (`.github/workflows/docker-publish.yml`) that automatically builds and pushes the Docker image to Docker Hub on every push to `main` and on version tags.
+
+To enable it on your fork, add the following secrets under **Settings → Secrets → Actions**:
+
+| Secret | Value |
+| ---------------------- | ----------------------------------------- |
+| `DOCKERHUB_USERNAME` | Your Docker Hub username |
+| `DOCKERHUB_TOKEN` | Access token from hub.docker.com → Security |
 
 ## Contributing
 

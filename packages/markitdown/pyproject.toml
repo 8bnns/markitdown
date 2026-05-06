@@ -48,6 +48,8 @@ all = [
   "youtube-transcript-api~=1.0.0",
   "azure-ai-documentintelligence",
   "azure-identity",
+  "striprtf",
+  "odfpy",
 ]
 pptx = ["python-pptx"]
 docx = ["mammoth~=1.11.0", "lxml"]
@@ -58,6 +60,8 @@ outlook = ["olefile"]
 audio-transcription = ["pydub", "SpeechRecognition"]
 youtube-transcription = ["youtube-transcript-api"]
 az-doc-intel = ["azure-ai-documentintelligence", "azure-identity"]
+rtf = ["striprtf"]
+odf = ["odfpy"]
 
 [project.urls]
 Documentation = "https://github.com/microsoft/markitdown#readme"

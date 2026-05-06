@@ -23,6 +23,8 @@ from ._doc_intel_converter import (
 )
 from ._epub_converter import EpubConverter
 from ._csv_converter import CsvConverter
+from ._rtf_converter import RtfConverter
+from ._odt_converter import OdtConverter, OdsConverter, OdpConverter
 
 __all__ = [
     "PlainTextConverter",
@@ -45,4 +47,8 @@ __all__ = [
     "DocumentIntelligenceFileType",
     "EpubConverter",
     "CsvConverter",
+    "RtfConverter",
+    "OdtConverter",
+    "OdsConverter",
+    "OdpConverter",
 ]

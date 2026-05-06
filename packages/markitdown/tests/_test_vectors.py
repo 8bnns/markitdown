@@ -234,6 +234,49 @@ GENERAL_TEST_VECTORS = [
         ],
         must_not_include=[],
     ),
+    FileTestVector(
+        filename="test.rtf",
+        mimetype="text/rtf",
+        charset="ascii",
+        url=None,
+        must_include=[
+            "MarkItDown RTF Test",
+            "rtf-test-7a2f3b1c",
+        ],
+        must_not_include=[],
+    ),
+    FileTestVector(
+        filename="test.odt",
+        mimetype="application/vnd.oasis.opendocument.text",
+        charset=None,
+        url=None,
+        must_include=[
+            "MarkItDown ODT Test",
+            "odt-test-9c4e2d8f",
+        ],
+        must_not_include=[],
+    ),
+    FileTestVector(
+        filename="test.ods",
+        mimetype="application/vnd.oasis.opendocument.spreadsheet",
+        charset=None,
+        url=None,
+        must_include=[
+            "TestSheet",
+            "ods-test-5e1f9a3d",
+        ],
+        must_not_include=[],
+    ),
+    FileTestVector(
+        filename="test.odp",
+        mimetype="application/vnd.oasis.opendocument.presentation",
+        charset=None,
+        url=None,
+        must_include=[
+            "odp-test-3b7a1e6c",
+        ],
+        must_not_include=[],
+    ),
 ]
 
 

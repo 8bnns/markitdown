@@ -3,6 +3,8 @@
 [![PyPI](https://img.shields.io/pypi/v/markitdown.svg)](https://pypi.org/project/markitdown/)
 ![PyPI - Downloads](https://img.shields.io/pypi/dd/markitdown)
 [![Built by AutoGen Team](https://img.shields.io/badge/Built%20by-AutoGen%20Team-blue)](https://github.com/microsoft/autogen)
+[![Docker Hub](https://img.shields.io/docker/pulls/mohammd82/markitdown?label=Docker%20Pulls&logo=docker)](https://hub.docker.com/r/mohammd82/markitdown)
+[![Docker Image Size](https://img.shields.io/docker/image-size/mohammd82/markitdown/latest?logo=docker)](https://hub.docker.com/r/mohammd82/markitdown)
 
 > [!TIP]
 > MarkItDown now offers an MCP (Model Context Protocol) server for integration with LLM applications like Claude Desktop. See [markitdown-mcp](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp) for more information.
